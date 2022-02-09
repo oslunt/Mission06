@@ -61,5 +61,11 @@ namespace Mission06.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult Edit(int taskid)
+        {
+            ViewBag.Cat = tasksContext.Categories.ToList();
+        }
+
     }
 }
