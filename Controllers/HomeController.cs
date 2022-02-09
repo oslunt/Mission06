@@ -96,7 +96,7 @@ namespace Mission06.Controllers
         [HttpPost]
         public IActionResult Complete(TaskResponse tr)
         {
-            var task = tasksContext.Responses.Single(x => x.TaskId == taskid);
+            var task = tasksContext.Responses.Single(x => x.TaskId == tr.TaskId);
             task.Completed = true;
             tasksContext.Update(task);
             tasksContext.SaveChanges();

@@ -31,7 +31,7 @@
                         if (m.Quadrant == 1)
                         {
                         <tr>
-                            <td><button asp-controller="Home" asp-action="Complete" asp-route-taskid="@m.TaskId" class="btn btn-dark">Complete</button></td>
+                            <td><a asp-controller="Home" asp-action="Complete" asp-route-taskid="@m.TaskId" class="btn btn-dark">Complete</a></td>
                             <td>@m.Task</td>
                             <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@m.TaskId">Edit</a></td>
                             <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@m.TaskId">Delete</a></td>
@@ -75,7 +75,7 @@
                         if (m.Quadrant == 3)
                         {
                     <tr>
-                        <td><button asp-controller="Home" asp-action="Complete" asp-route-taskid="@m.TaskId" class="btn btn-dark">Complete</button></td>
+                        <td><a asp-controller="Home" asp-action="Complete" asp-route-taskid="@m.TaskId" class="btn btn-dark">Complete</a></td>
                         <td>@m.Task</td>
                         <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@m.TaskId">Edit</a></td>
                         <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@m.TaskId">Delete</a></td>
@@ -94,7 +94,7 @@
                         if (m.Quadrant == 4)
                         {
                     <tr>
-                        <td><button asp-controller="Home" asp-action="Complete" asp-route-taskid="@m.TaskId" class="btn btn-dark">Complete</button></td>
+                        <td><a asp-controller="Home" asp-action="Complete" asp-route-taskid="@m.TaskId" class="btn btn-dark">Complete</a></td>
                         <td>@m.Task</td>
                         <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@m.TaskId">Edit</a></td>
                         <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@m.TaskId">Delete</a></td>
