@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Complete";
+}
+
+@model TaskResponse 
+
+<h3 class="col-text">Did you complete  task: @Model.Task?</h3>
+<form method="post" asp-controller="Home" asp-action="Complete">
+    <button value="true" class="btn btn-dark">Yes</button>
+    <button value="false" class="btn btn-dark" asp-action="Tasks">No</button>
+    <input type="hidden" asp-for="TaskId" />
+</form>
