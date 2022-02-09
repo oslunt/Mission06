@@ -40,22 +40,7 @@ namespace Mission06.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult AddTask(TaskResponse tr)
-        {
-            if (ModelState.IsValid)
-            {
-                tasksContext.Add(tr);
-                tasksContext.SaveChanges();
-                return RedirectToAction("Tasks");
-            }
-            else
-            {
-                ViewBag.Cat = tasksContext.Categories.ToList();
-                return View(tr);
-            }
-        }
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         
-
     }
 }
