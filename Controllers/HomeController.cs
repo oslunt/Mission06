@@ -86,5 +86,21 @@ namespace Mission06.Controllers
             return RedirectToAction("Tasks");
         }
 
+        [HttpGet]
+        public IActionResult Complete(int taskid)
+        {
+            var task = tasksContext.Responses.Single(x => x.TaskId == taskid);
+            return View(task);
+        }
+
+        [HttpPost]
+        public IActionResult Complete(TaskResponse tr)
+        {
+            tr.Completed = true;
+            tasksContext.Update(tr);
+            tasksContext.SaveChanges();
+            return RedirectToAction("Tasks");
+        }
+
     }
 }
