@@ -57,14 +57,6 @@ namespace Mission06.Controllers
         }
         
 
-        [HttpGet]
-        public IActionResult AddTask()
-        {
-            ViewBag.Cat = tasksContext.Categories.ToList();
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        
+    
     }
 }
