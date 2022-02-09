@@ -11,24 +11,39 @@ namespace Mission06.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private TasksContext tasksContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(TasksContext tc)
         {
-            _logger = logger;
+            tasksContext = tc;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View("Quadrant");
         }
 
-        public IActionResult Privacy()
+        public IActionResult Quadrant()
         {
             return View();
         }
 
-        
+        public IActionResult Tasks()
+        {
+            return View();
+        }
 
+        [HttpGet]
+        public IActionResult AddTask()
+        {
+            ViewBag.Cat = tasksContext.Categories.ToList();
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
     }
 }
