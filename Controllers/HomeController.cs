@@ -1,4 +1,5 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Mission06.Models;
 using System;
@@ -30,7 +31,10 @@ namespace Mission06.Controllers
 
         public IActionResult Tasks()
         {
-            return View();
+            var tasks = tasksContext.Responses
+                .Include(x => x.Category)
+                .ToList();
+            return View(tasks);
         }
 
         [HttpGet]
@@ -55,8 +59,6 @@ namespace Mission06.Controllers
                 return View(tr);
             }
         }
-        
 
-    
     }
 }

@@ -16,7 +16,7 @@ namespace Mission06.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.22");
 
-            modelBuilder.Entity("Mission06.Models.Categories", b =>
+            modelBuilder.Entity("Mission06.Models.Category", b =>
                 {
                     b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
@@ -58,9 +58,6 @@ namespace Mission06.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("CategoriesCategoryId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("CategoryId")
                         .HasColumnType("INTEGER");
 
@@ -79,7 +76,7 @@ namespace Mission06.Migrations
 
                     b.HasKey("TaskId");
 
-                    b.HasIndex("CategoriesCategoryId");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Responses");
 
@@ -124,9 +121,11 @@ namespace Mission06.Migrations
 
             modelBuilder.Entity("Mission06.Models.TaskResponse", b =>
                 {
-                    b.HasOne("Mission06.Models.Categories", "Categories")
+                    b.HasOne("Mission06.Models.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoriesCategoryId");
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

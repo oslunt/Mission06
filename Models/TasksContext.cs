@@ -17,16 +17,16 @@ namespace Mission06.Models
 	}
 
 	public DbSet<TaskResponse> Responses { get; set; }
-	public DbSet<Categories> Categories { get; set; }
+	public DbSet<Category> Categories { get; set; }
 
 	//seeding database with categories and tasks
 	protected override void OnModelCreating(ModelBuilder mb)
 	{
-		mb.Entity<Categories>().HasData(
-			 new Categories { CategoryId = 1, CategoryName = "Home" },
-			 new Categories { CategoryId = 2, CategoryName = "School" },
-			 new Categories { CategoryId = 3, CategoryName = "Work" },
-			 new Categories { CategoryId = 4, CategoryName = "Church" }
+		mb.Entity<Category>().HasData(
+			 new Category { CategoryId = 1, CategoryName = "Home" },
+			 new Category { CategoryId = 2, CategoryName = "School" },
+			 new Category { CategoryId = 3, CategoryName = "Work" },
+			 new Category { CategoryId = 4, CategoryName = "Church" }
 
 		    );
 

@@ -20,6 +20,6 @@ namespace Mission06.Models
         public Boolean Completed { get; set; }
 		//foriegn key of category
 		public int CategoryId { get; set; }
-		public Categories Categories { get; set; }
+		public Category Category { get; set; }
     }
 }

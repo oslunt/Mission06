@@ -21,11 +21,11 @@
     @foreach (var m in Model)
     {
     <tr>
-        <td>m.Task</td>
-        <td>m.DueDate</td>
-        <td>m.Quadrant</td>
-        <td>m.Completed</td>
-        <td>m.Categories.CategoryName</td>
+        <td>@m.Task</td>
+        <td>@m.DueDate</td>
+        <td>@m.Quadrant</td>
+        <td>@m.Completed</td>
+        <td>@m.Category.CategoryName</td>
         <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="m.TaskId">Edit</a></td>
         <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="m.TaskId">Delete</a></td>
     </tr>
