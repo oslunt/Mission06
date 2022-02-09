@@ -11,23 +11,50 @@ namespace Mission06.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private TasksContext tasksContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(TasksContext tc)
         {
-            _logger = logger;
+            tasksContext = tc;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View("Quadrant");
         }
 
-        public IActionResult Privacy()
+        public IActionResult Quadrant()
         {
             return View();
         }
 
+        public IActionResult Tasks()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult AddTask()
+        {
+            ViewBag.Cat = tasksContext.Categories.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddTask(TaskResponse tr)
+        {
+            if (ModelState.IsValid)
+            {
+                tasksContext.Add(tr);
+                tasksContext.SaveChanges();
+                return RedirectToAction("Tasks");
+            }
+            else
+            {
+                ViewBag.Cat = tasksContext.Categories.ToList();
+                return View(tr);
+            }
+        }
         
 
     }
