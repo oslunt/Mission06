@@ -33,6 +33,7 @@ namespace Mission06.Controllers
         {
             var tasks = tasksContext.Responses
                 .Include(x => x.Category)
+                .Where(x => x.Completed == false)
                 .ToList();
             return View(tasks);
         }
