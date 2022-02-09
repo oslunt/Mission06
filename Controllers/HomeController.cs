@@ -40,10 +40,20 @@ namespace Mission06.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult AddTask(TaskResponse tr)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (ModelState.IsValid)
+            {
+                tasksContext.Add(tr);
+                tasksContext.SaveChanges();
+                return RedirectToAction("Tasks");
+            }
+            else
+            {
+                ViewBag.Cat = tasksContext.Categories.ToList();
+                return View(tr);
+            }
         }
     }
 }
