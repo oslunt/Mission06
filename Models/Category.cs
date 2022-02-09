@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Mission06.Models
 {
-	public class Categories
+	public class Category
 	{
 		[Key]
 		[Required]

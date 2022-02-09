@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Mission06.Migrations
 {
-    public partial class Initial : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -30,18 +30,17 @@ namespace Mission06.Migrations
                     DueDate = table.Column<DateTime>(nullable: false),
                     Quadrant = table.Column<int>(nullable: false),
                     Completed = table.Column<bool>(nullable: false),
-                    CategoryId = table.Column<int>(nullable: false),
-                    CategoriesCategoryId = table.Column<int>(nullable: true)
+                    CategoryId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Responses", x => x.TaskId);
                     table.ForeignKey(
-                        name: "FK_Responses_Categories_CategoriesCategoryId",
-                        column: x => x.CategoriesCategoryId,
+                        name: "FK_Responses_Categories_CategoryId",
+                        column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "CategoryId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -66,28 +65,28 @@ namespace Mission06.Migrations
 
             migrationBuilder.InsertData(
                 table: "Responses",
-                columns: new[] { "TaskId", "CategoriesCategoryId", "CategoryId", "Completed", "DueDate", "Quadrant", "Task" },
-                values: new object[] { 1, null, 2, true, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(2011), 1, "Finish Mission6" });
+                columns: new[] { "TaskId", "CategoryId", "Completed", "DueDate", "Quadrant", "Task" },
+                values: new object[] { 2, 1, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(2008), 2, "Date Night" });
 
             migrationBuilder.InsertData(
                 table: "Responses",
-                columns: new[] { "TaskId", "CategoriesCategoryId", "CategoryId", "Completed", "DueDate", "Quadrant", "Task" },
-                values: new object[] { 2, null, 1, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(2008), 2, "Date Night" });
+                columns: new[] { "TaskId", "CategoryId", "Completed", "DueDate", "Quadrant", "Task" },
+                values: new object[] { 1, 2, true, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(2011), 1, "Finish Mission6" });
 
             migrationBuilder.InsertData(
                 table: "Responses",
-                columns: new[] { "TaskId", "CategoriesCategoryId", "CategoryId", "Completed", "DueDate", "Quadrant", "Task" },
-                values: new object[] { 3, null, 3, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(2008), 3, "Apply for Internships" });
+                columns: new[] { "TaskId", "CategoryId", "Completed", "DueDate", "Quadrant", "Task" },
+                values: new object[] { 3, 3, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(2008), 3, "Apply for Internships" });
 
             migrationBuilder.InsertData(
                 table: "Responses",
-                columns: new[] { "TaskId", "CategoriesCategoryId", "CategoryId", "Completed", "DueDate", "Quadrant", "Task" },
-                values: new object[] { 4, null, 4, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, "Put strap on scabard" });
+                columns: new[] { "TaskId", "CategoryId", "Completed", "DueDate", "Quadrant", "Task" },
+                values: new object[] { 4, 4, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, "Put strap on scabard" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Responses_CategoriesCategoryId",
+                name: "IX_Responses_CategoryId",
                 table: "Responses",
-                column: "CategoriesCategoryId");
+                column: "CategoryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

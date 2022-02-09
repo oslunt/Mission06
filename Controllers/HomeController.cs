@@ -32,7 +32,7 @@ namespace Mission06.Controllers
         public IActionResult Tasks()
         {
             var tasks = tasksContext.Responses
-                .Include(x => x.Categories)
+                .Include(x => x.Category)
                 .ToList();
             return View(tasks);
         }
