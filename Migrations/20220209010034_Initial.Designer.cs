@@ -9,7 +9,7 @@ using Mission06.Models;
 namespace Mission06.Migrations
 {
     [DbContext(typeof(TasksContext))]
-    [Migration("20220209004130_Initial")]
+    [Migration("20220209010034_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
