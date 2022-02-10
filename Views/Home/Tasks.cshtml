@@ -5,35 +5,6 @@
 
 @model List<TaskResponse>
 
-@*<table class="table table-bordered table striped">
-<thead class="font-weight-bold">
-    <tr>
-        <td>Task</td>
-        <td>Due Date</td>
-        <td>Quadrant</td>
-        <td>Completed</td>
-        <td>Category</td>
-        
-    </tr>
-</thead>
-
-<tbody>
-    @foreach (var m in Model)
-    {
-    <tr>
-        <td>@m.Task</td>
-        <td>@m.DueDate</td>
-        <td>@m.Quadrant</td>
-        <td>@m.Completed</td>
-        <td>@m.Category.CategoryName</td>
-        <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="m.TaskId">Edit</a></td>
-        <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="m.TaskId">Delete</a></td>
-    </tr>
-    }
-</tbody>
-
-</table>*@
-
 <div class="container">
     <div class="row">
         <div class="col col-text grid">
@@ -60,9 +31,10 @@
                         if (m.Quadrant == 1)
                         {
                         <tr>
+                            <td><a asp-controller="Home" asp-action="Complete" asp-route-taskid="@m.TaskId">Complete</a></td>
                             <td>@m.Task</td>
-                            <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="m.TaskId">Edit</a></td>
-                            <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="m.TaskId">Delete</a></td>
+                            <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@m.TaskId">Edit</a></td>
+                            <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@m.TaskId">Delete</a></td>
                         </tr>
                         }
                     }
@@ -77,11 +49,12 @@
                     {
                         if (m.Quadrant == 2)
                         {
-                            <tr>
-                                <td>@m.Task</td>
-                                <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="m.TaskId">Edit</a></td>
-                                <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="m.TaskId">Delete</a></td>
-                            </tr>
+                    <tr>
+                        <td><a asp-controller="Home" asp-action="Complete" asp-route-taskid="@m.TaskId">Complete</a></td>
+                        <td>@m.Task</td>
+                        <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@m.TaskId">Edit</a></td>
+                        <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@m.TaskId">Delete</a></td>
+                    </tr>
                         }
                     }
                 </tbody>
@@ -101,11 +74,12 @@
                     {
                         if (m.Quadrant == 3)
                         {
-                            <tr>
-                                <td>@m.Task</td>
-                                <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="m.TaskId">Edit</a></td>
-                                <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="m.TaskId">Delete</a></td>
-                            </tr>
+                    <tr>
+                        <td><a asp-controller="Home" asp-action="Complete" asp-route-taskid="@m.TaskId">Complete</a></td>
+                        <td>@m.Task</td>
+                        <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@m.TaskId">Edit</a></td>
+                        <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@m.TaskId">Delete</a></td>
+                    </tr>
                         }
                     }
                 </tbody>
@@ -119,11 +93,12 @@
                     {
                         if (m.Quadrant == 4)
                         {
-                            <tr>
-                                <td>@m.Task</td>
-                                <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="m.TaskId">Edit</a></td>
-                                <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="m.TaskId">Delete</a></td>
-                            </tr>
+                    <tr>
+                        <td><a asp-controller="Home" asp-action="Complete" asp-route-taskid="@m.TaskId">Complete</a></td>
+                        <td>@m.Task</td>
+                        <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@m.TaskId">Edit</a></td>
+                        <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@m.TaskId">Delete</a></td>
+                    </tr>
                         }
                     }
                 </tbody>

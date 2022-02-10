@@ -9,8 +9,8 @@ using Mission06.Models;
 namespace Mission06.Migrations
 {
     [DbContext(typeof(TasksContext))]
-    [Migration("20220209172516_init")]
-    partial class init
+    [Migration("20220209224836_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

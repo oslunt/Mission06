@@ -61,5 +61,47 @@ namespace Mission06.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult Edit(int taskid)
+        {
+            ViewBag.Cat = tasksContext.Categories.ToList();
+            var task = tasksContext.Responses.Single(x => x.TaskId == taskid);
+            return View("AddTask", task);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(TaskResponse tr)
+        {
+            tasksContext.Update(tr);
+            tasksContext.SaveChanges();
+            return RedirectToAction("Tasks");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int taskid)
+        {
+            TaskResponse task = tasksContext.Responses.Single(x => x.TaskId == taskid);
+            tasksContext.Responses.Remove(task);
+            tasksContext.SaveChanges();
+            return RedirectToAction("Tasks");
+        }
+
+        [HttpGet]
+        public IActionResult Complete(int taskid)
+        {
+            var task = tasksContext.Responses.Single(x => x.TaskId == taskid);
+            return View(task);
+        }
+
+        [HttpPost]
+        public IActionResult Complete(TaskResponse tr)
+        {
+            var task = tasksContext.Responses.Single(x => x.TaskId == tr.TaskId);
+            task.Completed = true;
+            tasksContext.Update(task);
+            tasksContext.SaveChanges();
+            return RedirectToAction("Tasks");
+        }
+
     }
 }
